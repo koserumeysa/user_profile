@@ -24,3 +24,10 @@ class ProfileStatusViewSet(ModelViewSet):
         user_profile = self.request.user.profile
         serializer.save(user_profile=user_profile)
 
+class ProfilePhotoUpdateView(generics.UpdateAPIView):
+    serializer_class = ProfilePhotoSerializer
+    permission_classes = [IsAuthenticated] 
+
+    def get_object(self):
+        profile_object = self.request.user.profile
+        return profile_object

@@ -14,6 +14,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 class ProfilePhotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
+        #We only want to update the photo field. Thus, we only give the photo.
         fields = ['photo',]
 
 
